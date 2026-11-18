@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>House VR Tour — Line View</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #fff; overflow: hidden;
+    font-family: "Segoe UI", system-ui, sans-serif; color: #111; }
+  canvas { display: block; }
+  #load { position: fixed; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; background: #fff; z-index: 5; }
+  #load h1 { font-size: 15px; letter-spacing: .25em; font-weight: 600; margin: 0; }
+  #bar { width: 260px; height: 2px; background: #e5e5e5; }
+  #bar > i { display: block; height: 100%; width: 0; background: #111; transition: width .15s; }
+  #msg { font-size: 12px; color: #777; }
+  #help { position: fixed; left: 16px; bottom: 84px; max-width: min(560px, calc(100% - 32px)); font-size: 12px; line-height: 1.6;
+    color: #555; background: rgba(255,255,255,.88); border: 1px solid #ddd; padding: 10px 12px; }
+  #help b { color: #111; font-weight: 600; }
+  #VRButton { font-family: inherit !important; letter-spacing: .15em; }
+  /* on-screen controls (phone, tablet, desktop; hidden inside the headset) */
+  canvas { touch-action: none; }
+  #ui { position: fixed; inset: 0; pointer-events: none; z-index: 3; font-family: "Segoe UI", system-ui, sans-serif; }
+  #ui[hidden] { display: none; }
+  #ui, #ui * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+  #joy i { pointer-events: none; }
+  #ui button, #ui a { pointer-events: auto; font: inherit; color: #111; border: 1px solid rgba(0,0,0,.12); cursor: pointer;
+    background: rgba(255,255,255,.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-decoration: none; }
+  #topbar { position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  #topbar a, #topbar button { padding: 8px 12px; border-radius: 999px; font-size: 13px; }
+  #topbar .on { background: #1B6F91; color: #fff; border-color: #1B6F91; }
+  #nav { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 8px; align-items: stretch;
+    width: min(560px, calc(100% - 24px)); }
+  #nav > button { border-radius: 16px; }
+  #nav .arrow { width: 52px; font-size: 26px; line-height: 1; flex: none; }
+  #room { flex: 1; min-width: 0; padding: 8px 12px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  #room .ar { font: 600 16px/1.3 "Noto Sans Arabic","Segoe UI",Tahoma,sans-serif; direction: rtl; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  #room .en { font-size: 11px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  #sheet { position: absolute; left: 50%; bottom: 84px; transform: translateX(-50%); width: min(560px, calc(100% - 24px));
+    max-height: min(60vh, 520px); overflow-y: auto; pointer-events: auto; background: rgba(255,255,255,.96);
+    border: 1px solid rgba(0,0,0,.12); border-radius: 18px; padding: 6px; box-shadow: 0 20px 50px -20px rgba(0,0,0,.35); }
+  #sheet[hidden] { display: none; }
+  #sheet button { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 14px;
+    border: 0 !important; border-radius: 12px; background: none !important; text-align: left; }
+  #sheet button.on { background: #E9F3F7 !important; }
+  #sheet .ar { font: 600 15px/1.35 "Noto Sans Arabic","Segoe UI",Tahoma,sans-serif; direction: rtl; text-align: right; }
+  #sheet .en { font-size: 12px; color: #666; }
+  #joy { position: absolute; left: 22px; bottom: 96px; width: 120px; height: 120px; border-radius: 50%; pointer-events: auto;
+    background: rgba(255,255,255,.35); border: 2px solid rgba(0,0,0,.18); touch-action: none; display: none; }
+  #joy i { position: absolute; left: 50%; top: 50%; width: 50px; height: 50px; margin: -25px 0 0 -25px; border-radius: 50%;
+    background: rgba(255,255,255,.9); border: 1px solid rgba(0,0,0,.2); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+  #tip { position: absolute; left: 50%; top: 104px; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px;
+    background: rgba(17,17,17,.7); color: #fff; font-size: 12px; white-space: nowrap; transition: opacity .6s; }
+  @media (pointer: coarse) {
+    #joy { display: block; }
+    #help { display: none; }
+    #VRButton { left: auto !important; right: 12px !important; top: 12px !important; bottom: auto !important; }
+  }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three.module.js",
+  "three-mesh-bvh": "./vendor/three-mesh-bvh.module.js"
+} }
+</script>
+</head>
+<body>
+<div id="load"><h1>HOUSE TOUR</h1><div id="bar"><i></i></div><div id="msg">Loading model…</div></div>
+<div id="help">
+  <b>Headset:</b> hold left stick to walk in steps · right stick forward (or right trigger) to aim a jump, let go to jump · right stick left/right = turn · Y = menu (rooms, comfort) · B = next room · A / X = back to start<br>
+  <b>Computer:</b> click to look · W A S D walk · Q / E turn · M = menu · N = next room · R = back to start · or use the buttons below
+</div>
+<div id="ui" hidden>
+  <div id="topbar"><a href="./deck/">‹ العرض · Deck</a><span id="types"></span></div>
+  <div id="tip">اسحب للنظر حولك · Drag to look around</div>
+  <div id="joy" aria-label="Walk"><i></i></div>
+  <div id="sheet" hidden></div>
+  <div id="nav">
+    <button class="arrow" id="prev" aria-label="Previous room">‹</button>
+    <button id="room" aria-label="Rooms"><span class="ar"></span><span class="en"></span></button>
+    <button class="arrow" id="next" aria-label="Next room">›</button>
+  </div>
+</div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

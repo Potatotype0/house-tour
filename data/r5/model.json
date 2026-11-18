@@ -1,0 +1,103 @@
+{
+ "bbox_min": [
+  29.093515396118164,
+  -5.5,
+  -19.42713165283203
+ ],
+ "bbox_max": [
+  60.591529846191406,
+  11.300000190734863,
+  21.057981491088867
+ ],
+ "layout": {
+  "solid_pos": {
+   "offset": 0,
+   "count": 1155951,
+   "type": "h"
+  },
+  "solid_idx": {
+   "offset": 2311904,
+   "count": 1846095,
+   "type": "I"
+  },
+  "glass_pos": {
+   "offset": 9696284,
+   "count": 4008,
+   "type": "h"
+  },
+  "glass_idx": {
+   "offset": 9704300,
+   "count": 6012,
+   "type": "I"
+  },
+  "door_pos": {
+   "offset": 9728348,
+   "count": 64842,
+   "type": "h"
+  },
+  "door_idx": {
+   "offset": 9858032,
+   "count": 127143,
+   "type": "I"
+  },
+  "doorglass_pos": {
+   "offset": 10366604,
+   "count": 1668,
+   "type": "h"
+  },
+  "doorglass_idx": {
+   "offset": 10369940,
+   "count": 3498,
+   "type": "I"
+  },
+  "lines_pos": {
+   "offset": 10383932,
+   "count": 1999692,
+   "type": "h"
+  }
+ },
+ "cameras": [
+  {
+   "name": "3D View: {3D}",
+   "pos": [
+    48.7741584777832,
+    -50.945682525634766,
+    -18.2220516204834
+   ],
+   "fwd": [
+    -0.12845969200134277,
+    0.2345239520072937,
+    -0.14628618955612183
+   ]
+  }
+ ],
+ "stats": {
+  "objects": 1828,
+  "decimated": 86,
+  "tris_in": 4338498,
+  "tris_out": 660916,
+  "segments": 333282,
+  "recipes": {
+   "planar+collapse": 74,
+   "weld+collapse (shape 3%)": 4,
+   "planar+collapse x2": 7,
+   "planar": 7,
+   "weld+collapse (shape 2%)": 1
+  },
+  "fallbacks": [
+   "Tesla Model X Tesla Model X [2650716]: weld+collapse (shape 3%) 19343",
+   "Tesla Model X Tesla Model X [2650717]: weld+collapse (shape 3%) 19343",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2650731]: planar+collapse x2 4989",
+   "island island [2673900]: planar+collapse x2 12924",
+   "Bolia - Scandinavia - Sofa - Remix 5 Seater with Open E_0db72d6: planar+collapse x2 10448",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2705913]: planar+collapse x2 4989",
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_7a160e6: planar+collapse x2 4998",
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_8a569dd: planar+collapse x2 4998",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2749100]: planar+collapse x2 4991",
+   "Tesla Model X Tesla Model X [2759205]: weld+collapse (shape 3%) 19343",
+   "Tesla Model X Tesla Model X [2759206]: weld+collapse (shape 3%) 19343",
+   "LR2170_PLANTA_128 LR2170_PLANTA_128 [2779647]: weld+collapse (shape 2%) 12545"
+  ]
+ },
+ "source": "RES-DAV-R5-3DView-{3D}.fbx"
+}

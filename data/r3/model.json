@@ -1,0 +1,101 @@
+{
+ "bbox_min": [
+  1.4757506847381592,
+  -4.9695515632629395,
+  -19.42713165283203
+ ],
+ "bbox_max": [
+  29.096647262573242,
+  8.019550323486328,
+  15.56635570526123
+ ],
+ "layout": {
+  "solid_pos": {
+   "offset": 0,
+   "count": 1103103,
+   "type": "h"
+  },
+  "solid_idx": {
+   "offset": 2206208,
+   "count": 1658922,
+   "type": "I"
+  },
+  "glass_pos": {
+   "offset": 8841896,
+   "count": 2952,
+   "type": "h"
+  },
+  "glass_idx": {
+   "offset": 8847800,
+   "count": 4428,
+   "type": "I"
+  },
+  "door_pos": {
+   "offset": 8865512,
+   "count": 88194,
+   "type": "h"
+  },
+  "door_idx": {
+   "offset": 9041900,
+   "count": 174015,
+   "type": "I"
+  },
+  "doorglass_pos": {
+   "offset": 9737960,
+   "count": 0,
+   "type": "h"
+  },
+  "doorglass_idx": {
+   "offset": 9737960,
+   "count": 0,
+   "type": "I"
+  },
+  "lines_pos": {
+   "offset": 9737960,
+   "count": 1805154,
+   "type": "h"
+  }
+ },
+ "cameras": [
+  {
+   "name": "3D View: {3D}",
+   "pos": [
+    38.5633430480957,
+    -8.331578254699707,
+    6.061037540435791
+   ],
+   "fwd": [
+    -0.20789125561714172,
+    0.20009654760360718,
+    -0.09821222722530365
+   ]
+  }
+ ],
+ "stats": {
+  "objects": 1655,
+  "decimated": 71,
+  "tris_in": 3602461,
+  "tris_out": 612455,
+  "segments": 300859,
+  "recipes": {
+   "planar+collapse": 61,
+   "planar+collapse x2": 5,
+   "weld+collapse (shape 3%)": 3,
+   "planar": 6,
+   "weld+collapse (shape 2%)": 2
+  },
+  "fallbacks": [
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_a26a511: planar+collapse x2 4998",
+   "Tesla Model X Tesla Model X [2246751]: weld+collapse (shape 3%) 19343",
+   "Tesla Model X Tesla Model X [2246830]: weld+collapse (shape 3%) 19343",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2253241]: planar+collapse x2 4989",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2254027]: planar+collapse x2 4989",
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_275c169: planar+collapse x2 4998",
+   "Tesla Model X Tesla Model X [2334414]: weld+collapse (shape 3%) 19343",
+   "island island [2385330]: planar+collapse x2 12922",
+   "LR2170_PLANTA_128 LR2170_PLANTA_128 [2505117]: weld+collapse (shape 2%) 12545",
+   "LR2170_PLANTA_128 LR2170_PLANTA_128 [2505218]: weld+collapse (shape 2%) 12545"
+  ]
+ },
+ "source": "RES-DAV-R3-3DView-{3D}.fbx"
+}

@@ -1,0 +1,101 @@
+{
+ "bbox_min": [
+  0.45095816254615784,
+  -6.299999713897705,
+  -19.42713165283203
+ ],
+ "bbox_max": [
+  34.58513641357422,
+  11.300000190734863,
+  21.068359375
+ ],
+ "layout": {
+  "solid_pos": {
+   "offset": 0,
+   "count": 1156149,
+   "type": "h"
+  },
+  "solid_idx": {
+   "offset": 2312300,
+   "count": 1733166,
+   "type": "I"
+  },
+  "glass_pos": {
+   "offset": 9244964,
+   "count": 3048,
+   "type": "h"
+  },
+  "glass_idx": {
+   "offset": 9251060,
+   "count": 4572,
+   "type": "I"
+  },
+  "door_pos": {
+   "offset": 9269348,
+   "count": 86658,
+   "type": "h"
+  },
+  "door_idx": {
+   "offset": 9442664,
+   "count": 170727,
+   "type": "I"
+  },
+  "doorglass_pos": {
+   "offset": 10125572,
+   "count": 1668,
+   "type": "h"
+  },
+  "doorglass_idx": {
+   "offset": 10128908,
+   "count": 3498,
+   "type": "I"
+  },
+  "lines_pos": {
+   "offset": 10142900,
+   "count": 1853244,
+   "type": "h"
+  }
+ },
+ "cameras": [
+  {
+   "name": "3D View: {3D}",
+   "pos": [
+    29.616403579711914,
+    -29.584121704101562,
+    10.059615135192871
+   ],
+   "fwd": [
+    -0.21003930270671844,
+    0.19478635489940643,
+    -0.10413840413093567
+   ]
+  }
+ ],
+ "stats": {
+  "objects": 1652,
+  "decimated": 84,
+  "tris_in": 3722797,
+  "tris_out": 637321,
+  "segments": 308874,
+  "recipes": {
+   "planar+collapse": 74,
+   "planar+collapse x2": 6,
+   "weld+collapse (shape 3%)": 2,
+   "planar": 7,
+   "weld+collapse (shape 2%)": 2
+  },
+  "fallbacks": [
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_a26a511: planar+collapse x2 4998",
+   "Tesla Model X Tesla Model X [2246751]: weld+collapse (shape 3%) 19343",
+   "Tesla Model X Tesla Model X [2246830]: weld+collapse (shape 3%) 19343",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2253241]: planar+collapse x2 4989",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2254027]: planar+collapse x2 4989",
+   "LR324_Conjunto_Cama_Solteiro_15 LR324_Conjunto_Cama_Sol_275c169: planar+collapse x2 4998",
+   "island island [2385330]: planar+collapse x2 12924",
+   "LR2170_PLANTA_128 LR2170_PLANTA_128 [2505117]: weld+collapse (shape 2%) 12545",
+   "LR2170_PLANTA_128 LR2170_PLANTA_128 [2505218]: weld+collapse (shape 2%) 12545",
+   "LR878_Home_TV_06 (1) LR878_Home_TV_06 (1) [2620905]: planar+collapse x2 4989"
+  ]
+ },
+ "source": "RES-DAV-R4-3DView-{3D}.fbx"
+}
